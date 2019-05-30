@@ -1,0 +1,71 @@
+﻿1、linux网络篇
+IP地址，子网掩码，网段表示法，默认网关，DNS服务器关系
+
+ip地址 + 子网掩码 = 网络地址（高24位） + 主机地址（低8位）
+ip地址分三类：
+A类地址：子网掩码为 255.0.0.0
+B类地址：子网掩码为 255.255.0.0
+C类地址：子网掩码为 255.255.255.0
+192.168是属于C类地址，所以子网掩码是255.255.255.0
+
+如果IP对应的网路地址一样，则说明网路可以互通
+如果不同则需要网关来实现不同的网络地址下的ip互通
+
+2、DOCKER 安装 centos7为例
+
+
+
+  1、yum remove docker  docker-common docker-selinux docker-engine
+  2、yum install -y yum-utils device-mapper-persistent-data lvm2
+  3、yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  4、yum list docker-ce --showduplicates | sort -r
+  5、yum install docker-ce
+  6、systemctl start docker
+  7、systemctl enable docker
+  
+  wget安装jdk:
+    wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.tar.gz"
+    vim /etc/profile
+	
+	JAVA_HOME=/usr/java/jdk1.8.0_60
+    CLASSPATH=$JAVA_HOME/lib/
+    PATH=$PATH:$JAVA_HOME/bin
+    export PATH JAVA_HOME CLASSPATH
+  
+  yum安装mysql:
+    cd /usr/local/src/
+    wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm 
+    rpm -ivh mysql57-community-release-el7-8.noarch.rpm 
+    yum -y install mysql-server 
+	service mysqld restart
+  
+  docker容器带特权（即可使用systemctl命令）
+  进入docker容器带特权（即可使用systemctl命令）
+  创建docker容器时即带特权参数，例如：
+  docker run -itd --name=nginx --privileged=true -p 80:80 docker.io/nginx /usr/sbin/init
+  说明：以上--privileged=true与/usr/sbin/init起到决定作用。
+  
+  yum安装nginx
+  rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+  yum install -y nginx
+  
+  ssh-keygen -t rsa -C "707656893@qq.com"
+  git remote add origin https://github.com/beiduofen2011/spring_cloud_stu.git
+  
+  
+3、git把代码提交至gitHub
+
+   git init
+   git add 
+   git status
+   git commit -m "add all"
+   git remote add origin https://github.com/ljlagss/test.git
+   git push -u origin master
+  
+  
+  
+  
+  
+  
+    
+  
