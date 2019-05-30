@@ -49,12 +49,11 @@ C类地址：子网掩码为 255.255.255.0
   rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
   yum install -y nginx
   
-  ssh-keygen -t rsa -C "707656893@qq.com"
-  git remote add origin https://github.com/beiduofen2011/spring_cloud_stu.git
-  
   
 3、git把代码提交至gitHub
 
+   ssh-keygen -t rsa -C "707656893@qq.com"
+  
    git init
    git add 
    git status
